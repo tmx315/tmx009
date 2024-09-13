@@ -7,6 +7,48 @@
     <meta name="description" content="自定义屏幕点击应用">
     <meta name="generator" content="VitePress v1.3.1">
     <link rel="preload stylesheet" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/style.cSHzFneL.css" as="style">
+
+    <script>
+// 设置定时器
+let initialTimer = null;
+let autoRedirectTimer = null;
+
+function resetInitialTimer() {
+    // 清除现有的初始定时器
+    if (initialTimer) {
+        clearTimeout(initialTimer);
+    }
+    // 重新设置5分钟后的初始定时器
+    initialTimer = setTimeout(function() {
+        // 弹出对话框
+        let userChoice = confirm("亲爱的用户您好！孟轩官网后台检测到您在此界面5分钟了，为了保护您的眼睛，您可选择是否开启保护？");
+        if (userChoice) {
+            // 用户点击确定，立即跳转
+            window.location.href = "https://tmx315.github.io/tmx022/"; // 这里替换成你想要跳转的网址
+        } else {
+            // 用户点击取消，设置10秒后自动跳转
+            autoRedirectTimer = setTimeout(function() {
+                window.location.href = "https://tmx315.github.io/tmx009/"; // 同上
+            }, 0); // 10秒 = 10000毫秒
+        }
+    }, 300000); // 5分钟 = 300000毫秒
+}
+
+window.onload = function() {
+    // 立即开始5分钟计时
+    resetInitialTimer();
+};
+
+// 清除自动跳转定时器
+window.onbeforeunload = function() {
+    if (autoRedirectTimer) {
+        clearTimeout(autoRedirectTimer);
+    }
+    if (initialTimer) {
+        clearTimeout(initialTimer);
+    }
+};
+</script>
     
     <script type="module" src="file:///C:/Users/Administrator/Downloads/%E5%AD%9F%E8%BD%A9002%E5%AE%98%E7%BD%91_files/app.LkN9WXVu.js.%E4%B8%8B%E8%BD%BD"></script>
     <link rel="preload" href="https://registry.npmmirror.com/@gkd-kit/docs/0.0.1725011887959/files/.vitepress/dist/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
